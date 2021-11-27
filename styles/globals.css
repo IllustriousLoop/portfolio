@@ -17,13 +17,15 @@ body,
   user-select: none;
   overflow: hidden;
   overscroll-behavior: none;
+  position: relative;
 }
 
 body {
   position: fixed;
   overflow: hidden;
   overscroll-behavior-y: none;
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
   color: black;
   background: #f0f0f0;
 }
@@ -45,4 +47,11 @@ canvas {
   top: 0;
   pointer-events: none;
   overflow: hidden;
+}
+
+p {
+  position: absolute;
+  bottom: 0;
+  right: 1;
+  padding-left: 6px;
 }

@@ -1,6 +1,9 @@
 import * as THREE from "three";
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useLoader, useFrame } from "@react-three/fiber";
+import { Html, useProgress } from "@react-three/drei";
+import Head from "next/head";
+import Typical from "react-typical";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Text from "../components/Text";
 import { NextPage } from "next";
@@ -110,16 +113,42 @@ const Birds = () => {
   return <>{arrayBirds}</>;
 };
 
+function Loader() {
+  const { progress } = useProgress();
+  return <Html center>{progress} % loaded</Html>;
+}
+
 const App: NextPage = () => {
   return (
-    <Canvas camera={{ position: [0, 0, 35] }}>
-      <ambientLight intensity={2} />
-      <pointLight position={[40, 40, 40]} />
-      <Suspense fallback={null}>
-        <Jumbo />
-        <Birds />
-      </Suspense>
-    </Canvas>
+    <>
+      <Head>
+        <title>Portfolio | Jhair Paris</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Canvas camera={{ position: [0, 0, 35] }}>
+        <ambientLight intensity={2} />
+        <pointLight position={[40, 40, 40]} />
+        <Suspense fallback={<Loader />}>
+          <Jumbo />
+          <Birds />
+        </Suspense>
+      </Canvas>
+      <Typical
+        steps={[
+          "by",
+          1000,
+          "Jhair Paris ✋",
+          1000,
+          "Wcraft-dev ✋",
+          1000,
+          "Page in process of creation ⌛",
+          1000,
+          "Come back in a few days 😁",
+        ]}
+        wrapper="p"
+        loop={Infinity}
+      />
+    </>
   );
 };
 export default App;
