@@ -31,8 +31,8 @@ function Jumbo() {
   });
   return (
     <group ref={ref}>
-      <Text hAlign="right" position={[-12, 6.5, 0]} children="JHAIR" />
-      <Text hAlign="right" position={[-12, 0, 0]} children="PARIS" />
+      <Text hAlign="right" position={new THREE.Vector3(-12, 6.5, 0)} text="JHAIR" />
+      <Text hAlign="right" position={new THREE.Vector3(-12, 0, 0)} text="PARIS" />
     </group>
   );
 }
